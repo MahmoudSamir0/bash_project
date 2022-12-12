@@ -2,7 +2,7 @@
 export LC_COLLATE=C
 shopt -s extglob
 
-read -p 'enter your database name ' name
+read -p 'enter your database name 'name
 case $name in 
     +([0-9]) )
         echo "the Databse name start with number "
@@ -34,10 +34,10 @@ case $name in
     echo "your database is here now "
     read -p "do you want to open your database"  ans
      case $answer in 
-             "yes" )
+             "Y" | "y" | "YES" | "Yes" | "yes" )
              cd $HOME/$name
              ;;
-              "no" )
+              "N" | "n" | "No" | "NO" | "no" | "nO" )
               exit
              ;;   
              *)  
