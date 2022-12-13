@@ -15,11 +15,13 @@ case $name in
          
     ;;
     +([a-zA-Z]) )
+    ###################################################################################main folder
     if [ -e $name ];then
     read -p "there a database have Same Name please change the name or do you want to open it press yes to open it or no to exit "  answer
     case $answer in 
     "Y" | "y" | "YES" | "Yes" | "yes")
     source cd $HOME/$name
+    ##################################################################################################
     select choice in "creat database" "list database" "drop database" "connect database"
     do
     case $choice  in
@@ -37,29 +39,10 @@ case $nam in
     ;;
     +([a-zA-Z]) )
     if [ -e $nam ];then
-    read -p "there a database have Same Name please change the name or do you want to open it press yes to open it or no to exit "  answe
-    case $answe in 
-    "Y" | "y" | "YES" | "Yes" | "yes")
-    source cd $HOME/$nam
-      ;;
-     "N" | "n" | "No" | "NO" | "no" | "nO")
-      exit
-      ;;   
-      *) 
-    esac
+    echo "there a database have Same Name please press 4 to connect to your database " 
     else
     mkdir $nam
-    echo "your database is here now "
-    read -p "do you want to open your new database press y or n"  ans
-     case $ans in 
-      "Y" | "y" | "YES" | "Yes" | "yes" )
-    source cd $HOME/$nam
-    ;;
-   "N" | "n" | "No" | "NO" | "no" | "nO" )
-   exit
-   ;;   
-   *)  
-    esac
+    echo "your database is here now please press 4 to connect to your database  "
     fi
      ;;
    *)
@@ -78,14 +61,15 @@ case $nam in
     echo "This database is not here. Check the database name again"
     fi
       ;;
+      ##################################
     "connect database")
       exit
+      ##################################################
       ;;
       *)
       echo "Nothing"
       esac
       done
-
       ;;
      "N" | "n" | "No" | "NO" | "no" | "nO")
       exit
@@ -101,6 +85,7 @@ case $nam in
     source cd $HOME/$name
     select choice in "creat database" "list database" "drop database" "connect database"
     do
+    #####################################################################subfolder
     case $choice  in
     "creat database")
     read -p 'enter your database name ' nam
@@ -116,29 +101,10 @@ case $nam in
     ;;
     +([a-zA-Z]) )
     if [ -e $nam ];then
-    read -p "there a database have Same Name please change the name or do you want to open it press yes to open it or no to exit "  answe
-    case $answe in 
-    "Y" | "y" | "YES" | "Yes" | "yes")
-    source cd $HOME/$nam
-      ;;
-     "N" | "n" | "No" | "NO" | "no" | "nO")
-      exit
-      ;;   
-      *) 
-    esac
+    echo "there a database have Same Name please press 4 to connect to your database " 
     else
     mkdir $nam
-    echo "your database is here now "
-    read -p "do you want to open your new database press y or n"  ans
-     case $ans in 
-      "Y" | "y" | "YES" | "Yes" | "yes" )
-    source cd $HOME/$nam
-    ;;
-   "N" | "n" | "No" | "NO" | "no" | "nO" )
-   exit
-   ;;   
-   *)  
-    esac
+    echo "your database is here now please press 4 to connect to your database  "
     fi
      ;;
    *)
@@ -157,8 +123,17 @@ case $nam in
     echo "This database is not here. Check the database name again"
     fi
       ;;
+################################
     "connect database")
-     exit
+     read -p "enter name of your database "  databas
+     if [ -e $databas ]; then 
+     source cd $databas
+     echo "you are in your database"
+     pwd
+     else 
+     echo "you entre wrong name"
+     fi
+#####################################
       ;;
       *)
     echo "Nothing"
