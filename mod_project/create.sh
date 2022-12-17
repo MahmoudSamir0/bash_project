@@ -21,9 +21,9 @@ case $nameoftable in
     echo  "there a table have Same Name please change the name"
 
     else 
-    echo "you will made new table in your database"$i
+    echo "you will made new table in your database $i "
         touch $nameoftable
-        read -p "do you want to enter column  name for your database" fr
+        read -p "do you want to enter column  name for your database enter y or n" fr
     case $fr in 
     "Y" | "y" | "YES" | "Yes" | "yes")
 source addcolumn.sh $nameoftable

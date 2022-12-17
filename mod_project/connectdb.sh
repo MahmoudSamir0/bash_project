@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 #connect
-#export PS3="Select from the options above>"
+export PS3="#database# $1"
 source cd $1
 echo "you are in your database"
 pwd
@@ -14,24 +14,24 @@ do
        source create.sh
         ;;
         "drop table")
-       ls -a 
+        source droptb.sh
         ;;
        "insert table")
        source inserttb.sh
         ;;
         "select table")
-       ls -a 
+       source selecttb.sh
         ;;
         "list table")
        ls
        ;;
        "delete table")
-       exit
-       ;;
+       source deletetb.sh
+        ;;
        "update table")
-       exit
+        source updatetp.sh
        ;;
         *)
-        echo "Nothing"
+        echo "enter right number"
 esac
 done
