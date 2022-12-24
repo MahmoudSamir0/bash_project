@@ -81,7 +81,7 @@ case $nam in
       *) 
     esac
     else
-    mkdir $name
+    mkdir $HOME/$name
     echo "your database is here now "
     read -p "do you want to open your new database press y or n"  ans
      case $ans in 
@@ -107,7 +107,7 @@ case $nam in
     if [ -e $nam ];then
     echo "there a database have Same Name please press 4 to connect to your database " 
     else
-    mkdir $nam
+    mkdir $HOME/$nam
     echo "your database is here now please press 4 to connect to your database  "
     fi
      ;;
