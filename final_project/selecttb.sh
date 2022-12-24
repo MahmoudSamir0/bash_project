@@ -21,6 +21,7 @@ cut -d " " -f$selec $ext
 source select_by_row.sh $ext 
 ;;
 "back")
+    source cd  ..
     read -p "enter name of your database you need to connect"  databas
      if [ -e $databas ]; then 
      source connectdb.sh $databas

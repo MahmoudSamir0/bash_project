@@ -1,6 +1,8 @@
   #!/usr/bin/bash
 export LC_COLLATE=C
 shopt -s extglob
+while true
+do
 select choice in "drop table" "drop coulmns" "back"
 do
 case $choice  in
@@ -16,14 +18,15 @@ case $choice  in
     "drop coulmns")
       read -p" enter name of table " dro
       read -p "enter number of your coulmn  to drop it " vat
-      if [ $vat == "1" ] ;then
-      echo "you can't drop primary key "
-      else 
+      if (($vat >= 2 )); then 
       sed -i -r  "s/\S+//$vat" $dro #don't forget file name
-      echo "==============done=============== "
+      echo "==============done=============== "     
+      else 
+      echo "you enter wrong number or you try to drop primary key you can't drop primary key "
       fi
     ;;
     "back")
+        source cd  ..
      read -p "enter name of your database you need to connect"  databas
      if [ -e $databas ]; then 
      source connectdb.sh $databas
@@ -34,4 +37,5 @@ case $choice  in
 *)
 esac
 exit
+done
 done

@@ -15,6 +15,7 @@ read -p "Enter table name : " se
 source delete_by.sh $se
 ;;
 "back")
+    source cd  ..
      read -p "enter name of your database you need to connect"  databas
      if [ -e $databas ]; then 
      source connectdb.sh $databas

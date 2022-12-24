@@ -28,7 +28,7 @@ do
        source deletetb.sh
         ;;
        "update table")
-        source updatetp.sh
+        source updatetb.sh
        ;;
         *)
         echo "enter right number"

@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 export LC_COLLATE=C
 shopt -s extglob
+source cd $HOME
 read -p 'enter your database name ' name
 case $name in 
     +([0-9]) )
@@ -39,6 +40,7 @@ case $nam in
     if [ -e $nam ];then
     echo "there a database have Same Name please press 4 to connect to your database " 
     else
+    source cd $HOME
     mkdir $nam
     echo "your database is here now please press 4 to connect to your database  "
     fi
@@ -54,7 +56,7 @@ case $nam in
     read -p" enter name of database " data
     if [ -d $data ] ; then
     rm -r $data
-    echo "done"
+      echo "==============done=============== "     
     else 
     echo "This database is not here. Check the database name again"
     fi
@@ -80,6 +82,7 @@ case $nam in
       *) 
     esac
     else
+    source cd $HOME
     mkdir $name
     echo "your database is here now "
     read -p "do you want to open your new database press y or n"  ans
@@ -121,7 +124,7 @@ case $nam in
     read -p" enter name of database " data
     if [ -d $data ] ; then
     rm -r $data
-    echo "done"
+      echo "==============done=============== "     
     else 
     echo "This database is not here. Check the database name again"
     fi
