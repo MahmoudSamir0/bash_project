@@ -1,0 +1,64 @@
+#!/usr/bin/bash 
+echo "press 1  to compare  id or 2 to compare age "
+read -p "coulmn number you want to compare it to " com
+read -p " enter your opration like this  < or > " ion 
+read -p "enter your math number  " ma
+case $com in
+ "1")
+ echo -e "select * where id $ion$ma"  #you can add file name by add $1 before  where
+case $ion in 
+      ">")
+    awk -v  cc="$ma" '
+BEGIN{FS=" "}
+{
+    if($1>=cc)
+    {
+        print  $1,$2,$3,$4 
+    }
+} 
+END{}  '  $1 #file name
+    ;;
+      "<" )
+    awk -v  cc="$ma" '
+BEGIN{FS=" "}
+{
+    if($1<=cc)
+    {
+        print  $1,$2,$3,$4 
+    }
+} 
+END{}  ' $1  #file name
+    ;;
+    *)
+    esac
+    ;;
+"2")
+ echo -e "select * where age $ion$ma"  #you can add file name by add $1 before  where
+case $ion in 
+      ">")
+    awk -v  cc="$ma" '
+BEGIN{FS=" "}
+{
+    if($2>=cc)
+    {
+        print  $1,$2,$3,$4 
+    }
+} 
+END{}  '  $1 #file name
+    ;;
+      "<" )
+    awk -v cc="$ma" '
+BEGIN{FS=" "}
+{
+    if($2<=cc)
+    {
+        print  $1,$2,$3,$4 
+    }
+} 
+END{}  ' $1  #file name
+    ;;
+    *)
+    esac
+;;
+*)
+esac
